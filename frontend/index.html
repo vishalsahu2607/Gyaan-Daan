@@ -2,30 +2,129 @@
 <html lang="en">
 <head>
    <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="Gyaan Daan is a social initiative that brings together knowledge sharing, volunteerism, and philanthropy." />
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Gyaan Daan</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link to external CSS -->
-    <link rel="icon" type="image/svg+xml" href="images/GD.svg">
+   <title>Gyaan Daan — Knowledge Sharing & Social Impact</title>
+   <link rel="stylesheet" href="style.css">
+   <link rel="icon" type="image/svg+xml" href="images/GD.svg">
 </head>
 <body>
-   <header class="site-header">
-       <h1>Gyaan Daan</h1>
-   </header>
-   <main>
-       <p>  <a href="login.html">Log In / Register</a> </p>
+   <div class="page-shell">
+      <header class="site-header">
+         <a class="brand" href="index.html" aria-label="Gyaan Daan home">
+            <img src="images/GD.svg" alt="Gyaan Daan logo" class="brand-mark" />
+            <span>Gyaan Daan</span>
+         </a>
+         <nav class="nav-links" aria-label="Primary navigation">
+            <a href="#about">About Us</a>
+            <a href="#programs">Programs</a>
+            <a href="#join">Join</a>
+            <a href="#updates">Updates</a>
+         </nav>
+      </header>
 
-       <p><a href="gyaandaan.html">GyaanDaan</a></p>
-  
-       <p><a href="daanveer.html">DaanVeer</a></p>
+      <main class="container">
+         <section class="hero">
+            <div class="hero-left">
+               <span class="badge">Knowledge sharing • philanthropy • impact</span>
+               <h1>A community for learning, generosity, and lasting change.</h1>
+               <p class="hero-sub">Gyaan Daan brings together two meaningful paths—GyaanDaata and DaanVeer—to create opportunities for students, volunteers, and donors.</p>
+               <div class="cta-row">
+                  <a class="btn btn-primary" href="gyaandaata.html">Explore GyaanDaata</a>
+                  <a class="btn btn-secondary" href="daanveer.html">Meet DaanVeer</a>
+               </div>
+            </div>
+            <div class="hero-right">
+               <div class="hero-card">
+                  <h2>What this platform offers</h2>
+                  <ul class="feature-list">
+                     <li>Meaningful educational support for students</li>
+                     <li>Volunteer opportunities for caring mentors</li>
+                     <li>A welcoming space for donors and supporters</li>
+                  </ul>
+               </div>
+            </div>
+         </section>
 
+         <section id="programs" class="grid" aria-label="Core programs">
+            <article class="card">
+               <h3>GyaanDaata</h3>
+               <p>Share knowledge, mentor students, and create brighter learning journeys through guidance and care.</p>
+            </article>
+            <article class="card">
+               <h3>DaanVeer</h3>
+               <p>Support initiatives, contribute resources, and help communities thrive with compassion and action.</p>
+            </article>
+            <article class="card">
+               <h3>Join Us</h3>
+               <p>Whether you want to teach, donate, or volunteer, there is a place for you in this mission.</p>
+            </article>
+         </section>
 
+         <section id="about" class="story-section">
+            <div class="story-card">
+               <h2>Why Gyaan Daan matters</h2>
+               <p>Every act of sharing knowledge and generosity helps build confidence, opportunity, and a stronger future for young minds.</p>
+            </div>
+         </section>
 
-   </main>
+         <section id="join" class="faq-section" aria-label="More information">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+               <h3>How can I participate?</h3>
+               <p>You can join as a volunteer, mentor, donor, or community supporter depending on your interests and availability.</p>
+            </div>
+            <div class="faq-item">
+               <h3>Who benefits from this initiative?</h3>
+               <p>Students, families, educators, and communities all benefit when knowledge and support are shared generously.</p>
+            </div>
+            <div class="faq-item">
+               <h3>Can I contribute in small ways?</h3>
+               <p>Yes. Even a small contribution of time, encouragement, or resources can make a meaningful difference.</p>
+            </div>
+         </section>
 
-   <footer>
-       <p>© 2024 My Website</p>
-   </footer>
-   <script src="scripts.js"></script> <!-- Link to external JavaScript -->
+         <section class="story-section">
+            <div class="story-card">
+               <h2>Volunteer interest form</h2>
+               <form id="volunteer-form" class="volunteer-form">
+                  <label for="name">Name</label>
+                  <input id="name" name="name" required />
+
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="email" required />
+
+                  <label for="role">I want to</label>
+                  <select id="role" name="role" required>
+                     <option value="">Select an option</option>
+                     <option value="Volunteer">Volunteer</option>
+                     <option value="Mentor">Mentor</option>
+                     <option value="Donate">Donate</option>
+                     <option value="Partner">Partner</option>
+                  </select>
+
+                  <label for="message">Message</label>
+                  <textarea id="message" name="message" rows="4"></textarea>
+
+                  <button class="btn btn-primary" type="submit">Submit</button>
+                  <p id="form-status" class="muted" aria-live="polite"></p>
+               </form>
+            </div>
+         </section>
+
+         <section id="updates" class="story-section compact">
+            <div class="story-card">
+               <h2>Stay connected</h2>
+               <p>Follow the latest updates as the initiative grows, welcomes new supporters, and expands its reach.</p>
+            </div>
+         </section>
+      </main>
+
+      <footer class="site-footer">
+         <p>© 2026 Gyaan Daan. Empowering learning through knowledge and care.</p>
+      </footer>
+   </div>
+   <script src="scripts.js"></script>
 </body>
 </html>
