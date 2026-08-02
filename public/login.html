@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>Login — Gyaan Daan</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="icon" type="image/svg+xml" href="images/GD.svg">
+</head>
+<body>
+	<div class="page-shell">
+		<header class="site-header">
+			<a class="brand" href="index.html" aria-label="Gyaan Daan home">
+				<img src="images/GD.svg" alt="Gyaan Daan logo" class="brand-mark" />
+				<span>Gyaan Daan</span>
+			</a>
+		</header>
+		<main class="container">
+			<section class="story-section">
+				<div class="story-card">
+					<h2>Login</h2>
+					<p class="muted">Use the demo account to sign in and explore the connected backend.</p>
+					<form id="login-form" class="volunteer-form">
+						<label for="email">Email</label>
+						<input id="email" name="email" type="email" value="admin@gyaandaan.com" required />
+
+						<label for="password">Password</label>
+						<input id="password" name="password" type="password" value="password123" required />
+
+						<button class="btn btn-primary" type="submit">Sign In</button>
+						<p id="login-status" class="muted" aria-live="polite"></p>
+					</form>
+				</div>
+			</section>
+		</main>
+	</div>
+	<script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "gyaandaan",
+  "version": "1.0.0",
+  "description": "Gyaan-Daan full-stack app with a public frontend and Express server",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.111.0",
+    "dotenv": "^17.4.2",
+    "express": "^4.21.2"
+  }
+}
