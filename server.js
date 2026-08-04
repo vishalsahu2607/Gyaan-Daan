@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const fs = require('fs');
 const path = require('path');
 const { createClient } = require('@supabase/supabase-js');
 
@@ -26,7 +27,17 @@ app.use((req, res, next) => {
 });
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
+
+const staticRoots = [path.join(__dirname, 'public'), path.join(__dirname, 'frontend')]
+  .filter((dir) => fs.existsSync(dir));
+
+staticRoots.forEach((dir) => {
+  app.use(express.static(dir));
+});
+
+const fallbackIndexPath = staticRoots
+  .map((dir) => path.join(dir, 'index.html'))
+  .find((filePath) => fs.existsSync(filePath));
 
 const initiatives = [
   {
@@ -152,10 +163,27 @@ app.get('/api/submissions', async (req, res) => {
 });
 
 app.get('*', (req, res) => {
+  const cleanPath = req.path === '/' ? '' : req.path.replace(/^\/+|\/+$/g, '');
+
+  if (cleanPath && !cleanPath.includes('.')) {
+    const candidateHtml = staticRoots
+      .map((dir) => path.join(dir, `${cleanPath}.html`))
+      .find((filePath) => fs.existsSync(filePath));
+
+    if (candidateHtml) {
+      return res.sendFile(candidateHtml);
+    }
+  }
+
   if (req.path.startsWith('/api')) {
     return res.status(404).json({ error: 'API endpoint not found' });
   }
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+
+  if (fallbackIndexPath) {
+    return res.sendFile(fallbackIndexPath);
+  }
+
+  res.status(404).send('Page not found');
 });
 
 if (require.main === module) {
