@@ -155,6 +155,23 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'frontend', 'index.html'));
 });
 
+// Centralized error handler. Must be defined last, after all routes, and
+// must keep all four arguments so Express recognizes it as an error handler.
+// Without this, thrown/forwarded errors (e.g. malformed JSON bodies) fell
+// through to Express's default handler, which returns the raw error stack
+// (including local file-system paths) to the client.
+app.use((err, req, res, next) => {
+  if (err && err.type === 'entity.parse.failed') {
+    return res.status(400).json({ success: false, error: 'Invalid JSON in request body.' });
+  }
+
+  console.error('Unhandled error:', err);
+  res.status(err.status || err.statusCode || 500).json({
+    success: false,
+    error: 'Something went wrong. Please try again later.'
+  });
+});
+
 if (require.main === module) {
   app.listen(port, () => {
     console.log(`Gyaan Daan server running at http://localhost:${port}`);
